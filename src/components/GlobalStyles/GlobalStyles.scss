@@ -2,10 +2,17 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 :root {
     --primary: #55679C;
+
+    // Default Layout
+    --default-layout-width: 1150px;
+    --default-layout-header-heigh: 60px;
+    --default-layout-sidebar-width: 356px;
 }
 
 html {

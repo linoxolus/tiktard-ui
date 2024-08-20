@@ -1,5 +1,5 @@
 function myAlert() {
-    alert('dmm');
+  alert("dmm");
 }
 
 export default myAlert;
