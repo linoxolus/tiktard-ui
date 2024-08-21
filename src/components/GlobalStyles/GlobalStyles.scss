@@ -4,15 +4,23 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: 0.1s;
 }
 
 :root {
-    --primary: #55679C;
+    --primary: #86c232;
+    --nav-background: #121212;
+    --btn-background: #2f2f2f;
+    --hover-background: #ffffff1f;
+    --background: #000000;
+    --focus-color: #ffffff33;
+    --active-color: #ffffff14;
+    --text-color: #fff;
+    --text-opacity: 0.34;
 
     // Default Layout
-    --default-layout-width: 1150px;
     --default-layout-header-heigh: 60px;
-    --default-layout-sidebar-width: 356px;
+    --default-layout-sidebar-width: 240px;
 }
 
 html {
@@ -24,4 +32,21 @@ body {
     font-family: sans-serif;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
+
+[tabindex] {
+    outline: none;
+    outline: 1px solid var(--primary);
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none   ;
 }

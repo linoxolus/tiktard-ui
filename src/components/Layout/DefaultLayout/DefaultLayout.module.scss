@@ -8,16 +8,17 @@
 }
 
 .container {
-    width: var(--default-layout-width);
+    width: 100%;
     min-height: 100px;
-    border: #ccc 2px dashed;
+    // border: #ccc 2px dashed;
+    background-color: var(--background);
     overflow: scroll;
     height: 100%;
     display: flex;
 }
 
 .content {
-    border: #00712D 2px dashed;
+    // border: #00712D 2px dashed;
     flex: 1;
     width: 100%;
     max-height: 100%;
