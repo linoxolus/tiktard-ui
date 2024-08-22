@@ -1,0 +1,11 @@
+.wrapper {
+    width: 100%;
+    margin-top: 8px;
+    background-color: var(--box-background);
+    border-radius: 8px;
+    max-height: min(-156px + 100vh, 760px);
+    overflow: hidden auto;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    padding: 12px 0;
+}

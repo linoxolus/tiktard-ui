@@ -4,13 +4,14 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: 0.1s;
+    // transition: 0.1s;
 }
 
 :root {
     --primary: #86c232;
     --nav-background: #121212;
     --btn-background: #2f2f2f;
+    --box-background: #252525;
     --hover-background: #ffffff1f;
     --background: #000000;
     --focus-color: #ffffff33;
