@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
 import {
     faMagnifyingGlass,
+    faSignIn,
     faSpinner,
     faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +12,8 @@ import {
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem'
+import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -29,19 +31,27 @@ function Header() {
                     <images.logo.ReactComponent />
                 </div>
                 <Tippy
-                    render={attrs => (
+                    render={(attrs) => (
                         <div className={cx('search-result')} {...attrs}>
                             <PopperWrapper>
                                 <h3 className={cx('search-title')}>Accounts</h3>
-                                <AccountItem name={'Nguyen Gay Lo'} username={'nguyengaylo119'}/>
-                                <AccountItem name={'Tran Thui Dai'} username={'tranthaiduiyt997'}/>
-                                <AccountItem name={'Trinh Bu Cu'} username={'trinhbucu384'}/>
+                                <AccountItem
+                                    name={'Nguyen Gay Lo'}
+                                    username={'nguyengaylo119'}
+                                />
+                                <AccountItem
+                                    name={'Tran Thui Dai'}
+                                    username={'tranthaiduiyt997'}
+                                />
+                                <AccountItem
+                                    name={'Trinh Bu Cu'}
+                                    username={'trinhbucu384'}
+                                />
                             </PopperWrapper>
                         </div>
                     )}
                     visible={searchResult.length > 0}
                     interactive
-                    
                 >
                     <div className={cx('search')}>
                         <input
@@ -61,7 +71,11 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button href="/db" primary small rightIcon={<FontAwesomeIcon icon={faSignIn}/>}>
+                        Log In
+                    </Button>
+                </div>
             </div>
         </header>
     );
