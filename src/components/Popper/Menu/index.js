@@ -35,10 +35,12 @@ function Menu({ children, items = [], onChange = () => {} }) {
     return (
         <div className={cx('wrapper')}>
             <Tippy
-                visible
                 interactive
                 placement="bottom-end"
                 delay={[null, 650]}
+                onHide={() => {
+                    setHistory(prev => prev.slice(0, 1));
+                }}
                 render={(attrs) => {
                     return (
                         <div className={cx('menu-list')} {...attrs}>

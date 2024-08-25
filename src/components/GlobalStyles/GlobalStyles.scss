@@ -42,7 +42,7 @@ body {
 
 [tabindex] {
     outline: none;
-    outline: 1px solid var(--primary);
+    // outline: 1px solid var(--primary);
 }
 
 button,
@@ -54,4 +54,18 @@ input {
 a[href] {
     color: var(--text-color);
     text-decoration: none   ;
+}
+
+// Custom tippy tooltip
+body .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: var(--box-background);
+    border: none;
+
+    .tippy-arrow {
+        color: var(--box-background);
+    }
 }

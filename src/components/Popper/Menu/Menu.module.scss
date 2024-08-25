@@ -23,6 +23,9 @@
     }
 }
 
+.menu-item.separate {
+    border-top: 1px solid var(--hover-background);
+}
 
 .menu-item + .menu-item {
     margin-left: 0;
