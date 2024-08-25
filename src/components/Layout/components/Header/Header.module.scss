@@ -123,4 +123,18 @@
     display: flex;
     width: 160px;
     justify-content: center;
+    margin-left: 16px;
+
+}
+
+.more-btn {
+    color: var(--text-color);
+    background-color: transparent;
+    font-size: 2rem;
+    margin-left: 24px;
+    
+    svg {
+        padding: 0 4px;
+        width: 20px;
+    }
 }

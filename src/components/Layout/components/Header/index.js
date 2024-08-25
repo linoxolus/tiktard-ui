@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
 import {
+    faEllipsisVertical,
     faMagnifyingGlass,
-    faSignIn,
     faSpinner,
     faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,7 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
@@ -72,9 +73,14 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button href="/db" primary small rightIcon={<FontAwesomeIcon icon={faSignIn}/>}>
+                    <Button href="/db" primary small>
                         Log In
                     </Button>
+                    <Menu>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
