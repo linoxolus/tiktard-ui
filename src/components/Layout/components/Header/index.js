@@ -7,6 +7,10 @@ import {
     faMagnifyingGlass,
     faSpinner,
     faTimesCircle,
+    faCircleQuestion,
+    faEarthAmerica,
+    faHouseUser,
+    faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Header.module.scss';
@@ -18,7 +22,77 @@ import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
+const MENU_ITEMS = [
+    {
+        title: 'Creator tools',
+        icon: <FontAwesomeIcon icon={faHouseUser} />,
+        to: '',
+    },
+    {
+        title: 'English',
+        icon: <FontAwesomeIcon icon={faEarthAmerica} />,
+        to: '',
+        children: {
+            title: 'Language',
+            type: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'fi',
+                    title: 'Suomi',
+                },
+                {
+                    code: 'no',
+                    title: 'Norsk',
+                },
+                {
+                    code: 'se',
+                    title: 'Svenska',
+                },
+                {
+                    code: 'dk',
+                    title: 'Dansk',
+                },
+                {
+                    code: 'ch',
+                    title: 'Schweizerdeutsch',
+                },
+                {
+                    code: 'nl',
+                    title: 'Nederlands',
+                },
+            ],
+        },
+    },
+    {
+        title: 'Feedback and help',
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        to: '/feedback',
+    },
+    {
+        title: 'Dark Mode',
+        icon: <FontAwesomeIcon icon={faMoon} />,
+        to: '',
+    },
+];
+
 function Header() {
+
+    function handleMenu(item, type) {
+        switch(type) {
+            case 'language':
+                break;
+            default:
+        }
+    }
+
     const [searchResult, setSearchResult] = useState([]);
 
     setTimeout(() => {
@@ -76,7 +150,7 @@ function Header() {
                     <Button href="/db" primary small>
                         Log In
                     </Button>
-                    <Menu>
+                    <Menu items={MENU_ITEMS} onChange={handleMenu}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

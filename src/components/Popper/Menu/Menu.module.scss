@@ -8,13 +8,16 @@
     width: 224px;
 }
 
+// Menu item
+
 .menu-list .menu-item {
     color: var(--menu-text-color);
     justify-content: unset;
     text-decoration: none;
     width: 100%;
     border-radius: 0;
-    
+    line-height: 1.8rem;
+
     &:hover {
         background-color: var(--box-hover-background);
     }
@@ -23,4 +26,30 @@
 
 .menu-item + .menu-item {
     margin-left: 0;
+}
+
+// header
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+    cursor: default;
+    user-select: none;
+
+    .back-btn {
+        background-color: transparent;
+        color: var(--menu-text-color);
+        position: absolute;
+        left: 16px;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    
+    .back-btn svg {
+        transform: translateX(50%);        
+    }
 }

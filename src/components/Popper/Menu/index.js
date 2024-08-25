@@ -1,59 +1,63 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleQuestion,
-    faEarthAmerica,
-    faHouseUser,
-    faMoon,
-} from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
+import Header from './Header';
 import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-const MENU_ITEMS = [
-    {
-        title: 'Creator tools',
-        icon: <FontAwesomeIcon icon={faHouseUser} />,
-        to: '',
-    },
-    {
-        title: 'English',
-        icon: <FontAwesomeIcon icon={faEarthAmerica} />,
-        to: '',
-    },
-    {
-        title: 'Feedback and help',
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        to: '/feedback',
-    },
-    {
-        title: 'Dark Mode',
-        icon: <FontAwesomeIcon icon={faMoon} />,
-        to: '',
-    },
-];
+function Menu({ children, items = [], onChange = () => {} }) {
+    const [history, setHistory] = useState([{ data: items }]);
+    const current = history[history.length - 1];
 
-const renderItems = () => {
-    return MENU_ITEMS.map((item, index) => {
-        return <MenuItem data={item} key={index} />;
-    });
-};
+    const renderItems = () => {
+        return current.data.map((item, index) => {
+            const isParent = !!item.children;
+            return (
+                <MenuItem
+                    data={item}
+                    key={index}
+                    onClick={() => {
+                        if (isParent) {
+                            setHistory((prev) => [...prev, item.children]);
+                        } else {
+                            onChange(item, current.type);
+                        }
+                    }}
+                />
+            );
+        });
+    };
 
-function Menu({ children }) {
     return (
         <div className={cx('wrapper')}>
             <Tippy
+                visible
                 interactive
                 placement="bottom-end"
                 delay={[null, 650]}
                 render={(attrs) => {
                     return (
                         <div className={cx('menu-list')} {...attrs}>
-                            <PopperWrapper>{renderItems()}</PopperWrapper>
+                            <PopperWrapper>
+                                {history.length > 1 && (
+                                    <Header
+                                        title={current.title}
+                                        onBack={() => {
+                                            setHistory(
+                                                history.slice(
+                                                    0,
+                                                    history.length - 1
+                                                )
+                                            );
+                                        }}
+                                    />
+                                )}
+                                {renderItems()}
+                            </PopperWrapper>
                         </div>
                     );
                 }}
