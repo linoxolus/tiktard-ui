@@ -2,29 +2,36 @@ import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ name, username, image }) {
+function AccountItem({ data }) {
+    if (!data.full_name || data.full_name === '') {
+        data.full_name = data.nickname;
+    }
     return (
-        <div className={cx('wrapper')}>
-            <img
+        <Link className={cx('wrapper')} to={`/@${data.nickname}`}>
+            <Image
                 className={cx('avatar')}
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Anticom_official_logo.png"
+                src={data.avatar}
                 alt="DMCS"
                 loading="lazy"
             />
             <div className={cx('info')}>
                 <p className={cx('name')}>
-                    <span>{name}</span>
-                    <FontAwesomeIcon
-                        icon={faCheckCircle}
-                        className={cx('check')}
-                    />
+                    <span>{data.full_name}</span>
+                    {data.tick && (
+                        <FontAwesomeIcon
+                            icon={faCheckCircle}
+                            className={cx('check')}
+                        />
+                    )}
                 </p>
-                <span className={cx('username')}>@{username}</span>
+                <span className={cx('username')}>@{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 

@@ -31,6 +31,10 @@ const publicRoutes = [
     component: Search,
     layout: null,
   },
+  {
+    path: "/:nickname",
+    component: Profile,
+  },
 ];
 
 const privateRoutes = [];
