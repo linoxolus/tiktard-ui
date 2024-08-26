@@ -1,25 +1,26 @@
-import classNames from 'classnames/bind';
-import HeadlessTippy from '@tippyjs/react/headless';
-import Tippy from '@tippyjs/react';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faEllipsisVertical,
     faMagnifyingGlass,
+    faMessage,
+    faPaperPlane,
     faSpinner,
     faTimesCircle,
-    faPaperPlane,
-    faMessage,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import classNames from 'classnames/bind';
+import { useState } from 'react';
 
 import 'tippy.js/dist/tippy.css';
-import styles from './Header.module.scss';
+import { MORE_MENU, USER_MENU } from '~/API/mocks';
 import images from '~/assets/images';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Image from '~/components/Image';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Menu from '~/components/Popper/Menu';
-import { USER_MENU, MORE_MENU } from '~/API/mocks';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -114,7 +115,7 @@ function Header() {
                     >
                         {currentUser ? (
                             <div className={cx('avatar')}>
-                                <img
+                                <Image
                                     src="https://lh5.googleusercontent.com/-VXpgmQggQQM/AAAAAAAAAAI/AAAAAAAABA8/G4nyXM62kXQ/photo.jpg className={cx('action-btn')}"
                                     alt="Nguyen Quang A"
                                 />
