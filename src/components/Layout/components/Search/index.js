@@ -26,6 +26,13 @@ function Search() {
 
     const debounced = useDebounce(searchValue, 500);
 
+    const handleSearchInput = (e) => {
+        if (e.target.value[0] === " ") {
+            e.target.value = e.target.value.trim();
+        }
+        setSearchValue(e.target.value);
+    };
+
     useEffect(() => {
         if (!debounced.trim()) {
             setSearchResult([]);
@@ -68,7 +75,7 @@ function Search() {
                     type="text"
                     placeholder="Search"
                     value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleSearchInput}
                     spellCheck={false}
                     ref={inputRef}
                     onFocus={() => setShowResult(true)}

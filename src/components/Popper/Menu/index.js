@@ -9,7 +9,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange = () => {} }) {
+function Menu({ children, items = [], onChange = () => {}, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -38,6 +38,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
                 interactive
                 placement="bottom-end"
                 delay={[null, 650]}
+                hideOnClick={hideOnClick}
                 onHide={() => {
                     setHistory(prev => prev.slice(0, 1));
                 }}

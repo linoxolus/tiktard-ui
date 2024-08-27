@@ -12,8 +12,8 @@
     min-height: 100px;
     // border: #ccc 2px dashed;
     background-color: var(--background);
-    overflow: scroll;
-    height: 100%;
+    overflow: hidden;
+    height: 100vh;
     display: flex;
 }
 
@@ -22,5 +22,5 @@
     flex: 1;
     width: 100%;
     max-height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
 }

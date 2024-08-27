@@ -1,7 +1,7 @@
 import {
     faEllipsisVertical,
     faMessage,
-    faPaperPlane
+    faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
@@ -15,6 +15,7 @@ import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import Search from '../Search';
 import styles from './Header.module.scss';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -33,10 +34,12 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <images.logo.ReactComponent />
+                    <Button text to={routesConfig.home}>
+                        <images.logo.ReactComponent />
+                    </Button>
                 </div>
-                
-                <Search/>
+
+                <Search />
 
                 <div className={cx('actions', { space: currentUser })}>
                     {currentUser ? (
