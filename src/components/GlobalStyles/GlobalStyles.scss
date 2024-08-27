@@ -45,6 +45,28 @@ body {
     // outline: 1px solid var(--primary);
 }
 
+// Webkit scrollbar (chrome, chromium, safari, not-firefox browser, ...)
+::-webkit-scrollbar {
+    width: 4px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bdbdbd80;
+    border-radius: 1000px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6e6e6e;
+}
+
+// main css
+
 button,
 input {
     outline: none;
@@ -53,7 +75,7 @@ input {
 
 a[href] {
     color: var(--text-color);
-    text-decoration: none   ;
+    text-decoration: none;
 }
 
 // Custom tippy tooltip
