@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
+import { searchAPI } from '~/API';
 
 import 'tippy.js/dist/tippy.css';
 import AccountItem from '~/components/AccountItem';
@@ -26,26 +27,24 @@ function Search() {
     const debounced = useDebounce(searchValue, 500);
 
     useEffect(() => {
-        const apiUrl = `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-            debounced
-        )}&type=less`;
         if (!debounced.trim()) {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
-        fetch(apiUrl)
-            .then((res) => res.json())
-            // .then((res) => setSearchResult(res.data));
-            .then((res) => {
+
+        const fetchAPI = async () => {
+            setLoading(true);
+            try {
+                const res = await searchAPI(debounced, 'less');
                 if (res.data) {
                     setSearchResult(res.data);
                 }
                 setLoading(false);
-            })
-            .catch(() => {
+            } catch {
                 setLoading(false);
-            });
+            }
+        };
+        fetchAPI();
     }, [debounced]);
 
     return (
