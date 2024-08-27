@@ -9,7 +9,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange = () => {}, hideOnClick = false }) {
+function Menu({ children, items = [], onChange = () => {}, hideOnClick = false, ...passProps }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -35,6 +35,7 @@ function Menu({ children, items = [], onChange = () => {}, hideOnClick = false }
     return (
         <div className={cx('wrapper')}>
             <Tippy
+                {...passProps}
                 interactive
                 placement="bottom-end"
                 delay={[null, 650]}
