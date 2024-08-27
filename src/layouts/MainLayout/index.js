@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
-import Header from "~/components/Layout/components/Header";
-import Sidebar from "~/components/Layout/components/Sidebar";
-import styles from "./DefaultLayout.module.scss";
+import Header from "~/layouts/components/Header";
+import Sidebar from "~/layouts/components/Sidebar";
+import styles from "./MainLayout.module.scss";
 
 const cx = classNames.bind(styles);
 
-function DefaultLayout({ children }) {
+function MainLayout({ children }) {
   return (
     <div className={cx("wrapper")}>
       <Header />
@@ -17,4 +17,4 @@ function DefaultLayout({ children }) {
   );
 }
 
-export default DefaultLayout;
+export default MainLayout;

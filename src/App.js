@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import { publicRoutes } from "~/routes";
-import { DefaultLayout } from "~/components/Layout";
+import { MainLayout } from "~/layouts";
 import { Fragment } from "react";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
             const Layout =
               publicRoute.layout === null
                 ? Fragment
-                : publicRoute.layout || DefaultLayout;
+                : publicRoute.layout || MainLayout;
 
             return (
               <Route

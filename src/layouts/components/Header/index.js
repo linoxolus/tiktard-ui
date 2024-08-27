@@ -15,7 +15,7 @@ import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import Search from '../Search';
 import styles from './Header.module.scss';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -34,7 +34,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Button text to={routesConfig.home}>
+                    <Button text to={config.routes.home}>
                         <images.logo.ReactComponent />
                     </Button>
                 </div>
